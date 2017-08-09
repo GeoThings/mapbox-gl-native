@@ -18,7 +18,6 @@
 #include <mbgl/text/collision_tile.hpp>
 #include <mbgl/map/transform_state.hpp>
 #include <mbgl/style/filter_evaluator.hpp>
-#include <mbgl/util/chrono.hpp>
 #include <mbgl/util/logging.hpp>
 #include <mbgl/actor/scheduler.hpp>
 
@@ -42,7 +41,6 @@ GeometryTile::GeometryTile(const OverscaledTileID& id_,
              parameters.pixelRatio),
       glyphManager(parameters.glyphManager),
       imageManager(parameters.imageManager),
-      placementThrottler(Milliseconds(300), [this] { invokePlacement(); }),
       lastYStretch(1.0f) {
 }
 
@@ -86,7 +84,7 @@ void GeometryTile::setPlacementConfig(const PlacementConfig& desiredConfig) {
 
     ++correlationID;
     requestedConfig = desiredConfig;
-    placementThrottler.invoke();
+    invokePlacement();
 }
 
 void GeometryTile::invokePlacement() {

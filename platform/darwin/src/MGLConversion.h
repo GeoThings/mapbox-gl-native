@@ -68,8 +68,15 @@ inline OptionalNSObjectValue objectMember(const id value, const char *key) {
     }
 }
 
-// Not implemented (unneeded for MGLStyleFunction conversion):
-// optional<Error> eachMember(const NSObject*, Fn&&)
+inline optional<Error> eachMember(const id value, std::function<optional<Error>(const std::string&, const id)> Fn) {
+    NSCAssert([value isKindOfClass:[NSDictionary class]], @"Value must be an NSDictionary for get(string).");
+    for (NSString* key in value) {
+        const id member = [value objectForKey: key];
+        optional<Error> err = Fn(std::string(static_cast<const char *>([value UTF8String])), member);
+        if (err) return err;
+    }
+    return optional<Error>();
+}
 
 inline bool _isBool(const id value) {
     if (![value isKindOfClass:[NSNumber class]]) return false;

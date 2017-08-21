@@ -7,6 +7,8 @@
 
 namespace mbgl {
 
+using TileCoordinatePoint = Point<double>;
+
 class ProjectedMeters {
 private:
     double _northing; // Distance measured northwards.

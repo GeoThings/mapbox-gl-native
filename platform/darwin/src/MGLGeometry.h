@@ -101,6 +101,15 @@ NS_INLINE MGLCoordinateQuad MGLCoordinateQuadFromCoordinateBounds(MGLCoordinateB
     return quad;
 }
 
+/**
+ Idenfies the z/x/y tile. 
+ */
+typedef struct __attribute__((objc_boxable)) MGLTileID {
+    uint8_t z;
+    uint32_t x;
+    uint32_t y;
+} MGLTileID;
+
 /** Returns `YES` if the two coordinate bounds are equal to each other. */
 NS_INLINE BOOL MGLCoordinateBoundsEqualToCoordinateBounds(MGLCoordinateBounds bounds1, MGLCoordinateBounds bounds2) {
     return (bounds1.sw.latitude == bounds2.sw.latitude &&

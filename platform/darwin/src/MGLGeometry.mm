@@ -2,8 +2,6 @@
 
 #import "MGLFoundation.h"
 
-#import <mbgl/util/projection.hpp>
-
 /** Vertical field of view, measured in degrees, for determining the altitude
     of the viewpoint.
 

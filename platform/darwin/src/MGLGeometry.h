@@ -100,6 +100,16 @@ NS_INLINE MGLCoordinateBounds MGLCoordinateBoundsOffset(MGLCoordinateBounds boun
 }
 
 /**
+ Idenfies the z/x/y tile.
+ */
+typedef struct __attribute__((objc_boxable)) MGLTileID {
+    uint8_t z;
+    uint32_t x;
+    uint32_t y;
+} MGLTileID;
+
+
+/**
  Returns `YES` if the coordinate bounds covers no area.
 
  @note A bounds may be empty but have a non-zero coordinate span (e.g., when its

@@ -7,6 +7,7 @@
 
 #import <mbgl/util/geo.hpp>
 #import <mbgl/util/geometry.hpp>
+#import <mbgl/util/projection.hpp>
 
 typedef double MGLLocationRadians;
 typedef double MGLRadianDistance;
@@ -122,4 +123,25 @@ NS_INLINE MGLRadianCoordinate2D MGLRadianCoordinateAtDistanceFacingDirection(MGL
     double otherLongitude = coordinate.longitude + atan2(sin(direction) * sin(distance) * cos(coordinate.latitude),
                                                          cos(distance) - sin(coordinate.latitude) * sin(otherLatitude));
     return MGLRadianCoordinate2DMake(otherLatitude, otherLongitude);
+}
+
+NS_INLINE MGLTileID MGLTileIDContainingCoordinate2D(CLLocationCoordinate2D coordinate, double zoomLevel){
+    
+    mbgl::LatLng latLng = { coordinate.latitude, coordinate.longitude };
+    const double scale = std::pow(2.0, zoomLevel);
+    const mbgl::TileCoordinatePoint point = mbgl::Projection::project(latLng, scale) / double(mbgl::util::tileSize);
+    return { uint8_t(zoomLevel), uint32_t(point.x), uint32_t(point.y) };
+}
+
+NS_INLINE MGLCoordinateBounds MGLCoordinateBondsForTileId(MGLTileID tileID){
+    
+    const mbgl::TileCoordinatePoint point = { double(tileID.x), double(tileID.y) };
+    const mbgl::TileCoordinatePoint nextPoint = { double(tileID.x + 1), double(tileID.y + 1) };
+    const double scale = std::pow(2.0, tileID.z);
+    
+    const mbgl::LatLng nw = mbgl::Projection::unproject(point * double(mbgl::util::tileSize), scale);
+    const mbgl::LatLng se = mbgl::Projection::unproject(nextPoint * double(mbgl::util::tileSize), scale);
+    
+    return MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(se.latitude(), nw.longitude()),
+                                   CLLocationCoordinate2DMake(nw.latitude(), se.longitude()));
 }

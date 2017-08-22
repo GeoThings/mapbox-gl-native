@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1753ED421E53CE6F00A9FD90 /* MGLConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1753ED411E53CE6F00A9FD90 /* MGLConversion.h */; };
 		1753ED431E53CE6F00A9FD90 /* MGLConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 1753ED411E53CE6F00A9FD90 /* MGLConversion.h */; };
+		1AA9A9A81F4BF8E900A1960E /* MGLTileIDUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA9A9A61F4BF8E900A1960E /* MGLTileIDUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AA9A9A91F4BF8E900A1960E /* MGLTileIDUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA9A9A61F4BF8E900A1960E /* MGLTileIDUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AA9A9AA1F4BF8E900A1960E /* MGLTileIDUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9A9A71F4BF8E900A1960E /* MGLTileIDUtils.mm */; };
+		1AA9A9AB1F4BF8E900A1960E /* MGLTileIDUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9A9A71F4BF8E900A1960E /* MGLTileIDUtils.mm */; };
 		1F06668A1EC64F8E001C16D7 /* MGLLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0666881EC64F8E001C16D7 /* MGLLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F06668D1EC64F8E001C16D7 /* MGLLight.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F0666891EC64F8E001C16D7 /* MGLLight.mm */; };
 		1F7454921ECBB42C00021D39 /* MGLLight.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1F0666891EC64F8E001C16D7 /* MGLLight.mm */; };
@@ -545,6 +549,8 @@
 
 /* Begin PBXFileReference section */
 		1753ED411E53CE6F00A9FD90 /* MGLConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLConversion.h; sourceTree = "<group>"; };
+		1AA9A9A61F4BF8E900A1960E /* MGLTileIDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLTileIDUtils.h; sourceTree = "<group>"; };
+		1AA9A9A71F4BF8E900A1960E /* MGLTileIDUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MGLTileIDUtils.mm; sourceTree = "<group>"; };
 		1F0666881EC64F8E001C16D7 /* MGLLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLLight.h; sourceTree = "<group>"; };
 		1F0666891EC64F8E001C16D7 /* MGLLight.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MGLLight.mm; sourceTree = "<group>"; };
 		1F7454941ECD450D00021D39 /* MGLLight_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLLight_Private.h; sourceTree = "<group>"; };
@@ -1524,6 +1530,8 @@
 				DA88480E1CBAFA6200AB86E3 /* MGLShape.mm */,
 				DAD165761CF4CDFF001FF4B9 /* MGLShapeCollection.h */,
 				DAD165771CF4CDFF001FF4B9 /* MGLShapeCollection.mm */,
+				1AA9A9A61F4BF8E900A1960E /* MGLTileIDUtils.h */,
+				1AA9A9A71F4BF8E900A1960E /* MGLTileIDUtils.mm */,
 			);
 			name = Geometry;
 			sourceTree = "<group>";
@@ -1692,6 +1700,7 @@
 				DAAF722D1DA903C700312FA4 /* MGLStyleValue_Private.h in Headers */,
 				DA8847F41CBAFA5100AB86E3 /* MGLOfflinePack.h in Headers */,
 				DA88482E1CBAFA6200AB86E3 /* NSException+MGLAdditions.h in Headers */,
+				1AA9A9A81F4BF8E900A1960E /* MGLTileIDUtils.h in Headers */,
 				DA8848551CBAFB9800AB86E3 /* MGLLocationManager.h in Headers */,
 				408AA8571DAEDA1700022900 /* NSDictionary+MGLAdditions.h in Headers */,
 				DA88483F1CBAFB8500AB86E3 /* MGLUserLocation.h in Headers */,
@@ -1772,6 +1781,7 @@
 				4049C29E1DB6CD6C00B3F799 /* MGLPointCollection.h in Headers */,
 				3566C7671D4A77BA008152BC /* MGLShapeSource.h in Headers */,
 				DA35A29F1CC9E94C00E826B2 /* MGLCoordinateFormatter.h in Headers */,
+				1AA9A9A91F4BF8E900A1960E /* MGLTileIDUtils.h in Headers */,
 				404C26E31D89B877000AA13D /* MGLTileSource.h in Headers */,
 				DABFB8611CBE99E500D62B32 /* MGLMultiPoint.h in Headers */,
 				3510FFF11D6D9D8C00F413B2 /* NSExpression+MGLAdditions.h in Headers */,
@@ -2261,6 +2271,7 @@
 				FA68F14D1E9D656600F9F6C2 /* MGLFillExtrusionStyleLayer.mm in Sources */,
 				404C26E41D89B877000AA13D /* MGLTileSource.mm in Sources */,
 				355AE0011E9281DA00F3939D /* MGLScaleBar.mm in Sources */,
+				1AA9A9AA1F4BF8E900A1960E /* MGLTileIDUtils.mm in Sources */,
 				DA88481D1CBAFA6200AB86E3 /* MGLMapCamera.mm in Sources */,
 				DA8848261CBAFA6200AB86E3 /* MGLPolygon.mm in Sources */,
 				35B82BFA1D6C5F8400B1B721 /* NSPredicate+MGLAdditions.mm in Sources */,
@@ -2344,6 +2355,7 @@
 				1F7454921ECBB42C00021D39 /* MGLLight.mm in Sources */,
 				404C26E51D89B877000AA13D /* MGLTileSource.mm in Sources */,
 				355AE0021E9281DA00F3939D /* MGLScaleBar.mm in Sources */,
+				1AA9A9AB1F4BF8E900A1960E /* MGLTileIDUtils.mm in Sources */,
 				4018B1C81CDC287F00F666AF /* MGLAnnotationView.mm in Sources */,
 				DAA4E4341CBB730400178DFB /* MGLFaux3DUserLocationAnnotationView.m in Sources */,
 				35B82BFB1D6C5F8400B1B721 /* NSPredicate+MGLAdditions.mm in Sources */,
